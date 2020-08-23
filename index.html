@@ -1,0 +1,193 @@
+<html>
+
+<head>
+
+<title>LIVING EDGE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+
+body{
+	font-family: sans-serif;
+	background: #eee;
+	overflow: hidden;
+	margin:0;
+	padding:0;
+}
+
+h1{
+	font-family: sans-serif;
+	background: #eee;
+}
+
+
+a:visited{
+	font-family: sans-serif;
+	background: #eee;
+}
+
+#myCanvas{
+	background: #fcfcff;
+	height: 100vh; 
+	width: 100vw; 
+	display: block;
+}
+
+
+canvas {
+   display: inline;
+
+}
+
+
+
+</style>
+
+<body onload="draw()">
+
+
+	<div id="canvas-container">
+   	<canvas id="myCanvas"></canvas> 
+	</div>
+
+
+<img id="logo" src="img/logo.png" style="display:none">
+
+</body>
+
+<script>
+
+var mouseX;
+var mouseY;
+var radius;
+
+
+function draw(){
+
+	c = document.getElementById("myCanvas")
+	ctx = c.getContext("2d")
+	ctx.canvas.height = window.innerHeight
+	ctx.canvas.width = window.innerWidth
+	ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height)
+
+
+	ctx.lineWidth="0.5"
+
+	ctx.strokeStyle="#000"
+	ctx.fillStyle="#c8e64f"
+
+	ctx.beginPath()
+		ctx.rect(ctx.canvas.width*(2/3), 0, ctx.canvas.width/2, (ctx.canvas.height*0.41) );	
+	ctx.fill()
+
+	ctx.fillStyle="#315d7b"
+
+	ctx.beginPath()
+		ctx.rect(ctx.canvas.width*(2/3), ctx.canvas.height*0.41, ctx.canvas.width/6, (ctx.canvas.height) );	
+	ctx.fill()
+
+
+	ctx.fillStyle="#48a2ae"
+
+	ctx.beginPath()
+		ctx.rect(ctx.canvas.width*(5/6), ctx.canvas.height*0.41, ctx.canvas.width/6, (ctx.canvas.height*0.31) );	
+	ctx.fill()
+
+	ctx.fillStyle="#ec632f"
+
+	ctx.beginPath()
+		ctx.rect(ctx.canvas.width*(5/6), ctx.canvas.height*0.71, ctx.canvas.width/6, (ctx.canvas.height*0.31) );	
+	ctx.fill()
+
+
+
+	//buttons
+	radius = ctx.canvas.height*0.05
+
+
+	ctx.fillStyle="#ec632f"
+
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.08, ctx.canvas.height*0.9, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+	ctx.fillStyle="#48a2ae"
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.16, ctx.canvas.height*0.8, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+	ctx.fillStyle="#c8e64f"
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.24, ctx.canvas.height*0.9, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+	ctx.fillStyle="#315d7b"
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.32, ctx.canvas.height*0.8, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+	ctx.fillStyle="#393939"
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.4, ctx.canvas.height*0.9, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+	ctx.fillStyle="#050707"
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.48, ctx.canvas.height*0.8, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+	ctx.fillStyle="#dbe3ff"
+
+	ctx.beginPath();
+		ctx.arc(ctx.canvas.width * 0.56, ctx.canvas.height*0.9, radius, 0, 2 * Math.PI);
+	ctx.fill();
+
+
+	var img = document.getElementById("logo");
+
+
+
+	ctx.drawImage(img, ctx.canvas.width * 0.32-(ctx.canvas.height*0.325), 10, ctx.canvas.height*0.65, ctx.canvas.height*0.65);
+	
+
+	console.log(img)
+}
+
+$(window).resize(function(){
+	draw()
+})
+
+
+$("body").mousemove(function(e) {
+
+	//console.log(e.pageX);
+	//console.log(e.pageY);
+
+	mouseX=e.pageX;
+	mouseY=e.pageY;
+	//draw()
+
+})
+
+
+</script>
+
+
+
+
+
+</html>
+
+
+
+
+
